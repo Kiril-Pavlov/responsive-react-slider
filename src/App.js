@@ -2,7 +2,8 @@ import { useState } from "react";
 import Card from "./components/Card";
 
 function App() {
-  const [activeSlider,setActiveSlider] =useState(1)
+  const [activeSlider,setActiveSlider] =useState(0)
+  const [slidersNumber,setSlidersNumber] =useState(4)
 
   let sliders = [
     {
@@ -27,7 +28,7 @@ function App() {
     },
   ];
 
-  let modifiedSlides = sliders.slice(activeSlider,activeSlider+3)
+  let modifiedSlides = sliders.slice(activeSlider,activeSlider+slidersNumber)
 
   const handleShiftLeft = () =>{
     if(activeSlider===0){
@@ -38,7 +39,7 @@ function App() {
   }
 
   const handleShiftRight = () =>{
-    if(activeSlider === sliders.length-3){
+    if(activeSlider === sliders.length-slidersNumber){
       setActiveSlider(activeSlider)
     }else{
       setActiveSlider(activeSlider+1)
