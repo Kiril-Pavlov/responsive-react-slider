@@ -1,9 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./components/Card";
 
 function App() {
   const [activeSlider,setActiveSlider] =useState(0)
   const [slidersNumber,setSlidersNumber] =useState(4)
+
+  useEffect(()=>{
+    handleScreenSizes()
+  },[])
+
+  const handleScreenSizes = ()=>{
+    if(window.innerWidth<500){
+      setSlidersNumber(2)
+    }else if(window.innerWidth<1000){
+      setSlidersNumber(3)
+    }else if(window.innerWidth<1500){
+      setSlidersNumber(4)
+    }else{
+      setSlidersNumber(5)
+    }
+  }
+
+
 
   let sliders = [
     {
@@ -27,6 +45,8 @@ function App() {
       number: "4",
     },
   ];
+
+  console.log(window.innerWidth)
 
   let modifiedSlides = sliders.slice(activeSlider,activeSlider+slidersNumber)
 
