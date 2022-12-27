@@ -30,11 +30,19 @@ function App() {
   let modifiedSlides = sliders.slice(activeSlider,activeSlider+3)
 
   const handleShiftLeft = () =>{
-    setActiveSlider(activeSlider-1)
+    if(activeSlider===0){
+      setActiveSlider(0)
+    }else{
+      setActiveSlider(activeSlider-1)
+    }
   }
 
   const handleShiftRight = () =>{
-    setActiveSlider(activeSlider+1)
+    if(activeSlider === sliders.length-3){
+      setActiveSlider(activeSlider)
+    }else{
+      setActiveSlider(activeSlider+1)
+    }
   }
 
   return (
