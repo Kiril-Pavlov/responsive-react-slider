@@ -9,6 +9,8 @@ import slider4 from "./assets/slider-4.jpg"
 import slider5 from "./assets/slider-5.jfif"
 import slider6 from "./assets/slider-6.jpg"
 
+import {FaChevronLeft, FaChevronRight} from "react-icons/fa"
+
 function App() {
   const [activeSlider,setActiveSlider] =useState(0)
   const [slidersNumber,setSlidersNumber] =useState(4)
@@ -91,11 +93,11 @@ function App() {
 
   return (
     <div className="flex items-center justify-center gap-5">
-      <button onClick={handleShiftLeft}>LEFT</button>
+      <button onClick={handleShiftLeft}><FaChevronLeft size={40} fill="hsl(0, 0%, 40%)"/></button>
       {modifiedSlides.map((card) => {
         return <Card key={card.id} number={card.number} image={card.src}/>;
       })}
-      <button onClick={handleShiftRight}>RIGHT</button>
+      <button onClick={handleShiftRight}><FaChevronRight  size={40} fill="hsl(0, 0%, 40%)"/></button>
     </div>
   );
 }
