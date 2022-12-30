@@ -1,10 +1,14 @@
 import Slider from "./components/Slider";
+import Title from "./components/Title";
 
 function App() {
   
 
   return (
-    <Slider />
+    <>
+      <Title />
+      <Slider />
+    </>
   );
 }
 
