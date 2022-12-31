@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card"
 
+// Import slider images
 import slider0 from "../assets/slider-0.jpg";
 import slider1 from "../assets/slider-1.webp";
 import slider2 from "../assets/slider-2.jpg";
@@ -9,16 +10,20 @@ import slider4 from "../assets/slider-4.jpg";
 import slider5 from "../assets/slider-5.jfif";
 import slider6 from "../assets/slider-6.jpg";
 
+// Import react icons
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Slider = () => {
+  // states for active slider and number of sliders on screen
   const [activeSlider, setActiveSlider] = useState(0);
   const [slidersNumber, setSlidersNumber] = useState(4);
 
+  // useEffect hook to handle screen size at page load
   useEffect(() => {
     handleScreenSizes();
   }, []);
 
+  // function to handle number of cards depending on screen size
   const handleScreenSizes = () => {
     if (window.innerWidth < 500) {
       setSlidersNumber(1);
@@ -31,6 +36,7 @@ const Slider = () => {
     }
   };
 
+  //slider cards content - changeable
   let sliders = [
     {
       id:0,
@@ -69,10 +75,10 @@ const Slider = () => {
     },
   ];
 
-  console.log(window.innerWidth)
-
+  // slice arrays for card mapping
   let modifiedSlides = sliders.slice(activeSlider,activeSlider+slidersNumber)
 
+  // handle shift to left by one
   const handleShiftLeft = () =>{
     if(activeSlider===0){
       setActiveSlider(0)
@@ -81,6 +87,7 @@ const Slider = () => {
     }
   }
 
+  //handles shift to right by one
   const handleShiftRight = () =>{
     if(activeSlider === sliders.length-slidersNumber){
       setActiveSlider(activeSlider)
