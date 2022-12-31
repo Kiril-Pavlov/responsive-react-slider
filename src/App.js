@@ -1,3 +1,4 @@
+import Description from "./components/Description";
 import Slider from "./components/Slider";
 import Title from "./components/Title";
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <Title />
       <Slider />
+      <Description />
     </>
   );
 }
